@@ -108,8 +108,28 @@ unsigned int size(void)
  */
 bool unload(void)
 {
-    // TODO
-    return false;
+    for (int i = 0; i < HASHTABLE; i++)
+    {
+        // Initiating a cursor to move inside each linked list
+        node *cursor = list[i];
+        
+        // Clearing all the reserved memory
+        while (cursor != NULL)
+        {
+            node* tmp = cursor;
+            
+            char* tmpc = cursor->word;
+            
+            cursor = cursor->next_node;
+            
+            // freeing all the memory reserved by node elements
+            free(tmpc);
+            
+            free(tmp);
+        }
+    }
+    // successful return
+    return true;
 }
 
 /**
