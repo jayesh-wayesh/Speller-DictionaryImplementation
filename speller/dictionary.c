@@ -17,7 +17,24 @@ node *list[HASHTABLE];
  */
 bool check(const char *word)
 {
-    // TODO
+    // Finding the target linked list
+    int target = hashfunc(word);
+    
+    // Declaring a temporary node pointer to check misspelled words
+    node* temp = list[target];
+    
+    // Searching word in the target list 
+    while (temp != NULL)
+    {
+        // use strcasecmp to be case insensitive
+        if (strcasecmp (temp->word, word) == 0)
+        {
+            return true;
+        }
+        // switching to next node
+        temp = temp->next_node;
+    }
+    
     return false;
 }
 
