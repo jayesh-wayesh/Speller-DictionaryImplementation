@@ -6,6 +6,12 @@
 
 #include "dictionary.h"
 
+// Declaration of a char array to store scanned words from the dictionary
+char WORD[LENGTH + 1];
+
+// Declaration of Node pointers which will hold the base address of linked lists
+node *list[HASHTABLE];
+
 /**
  * Returns true if word is in dictionary else false.
  */
@@ -15,13 +21,60 @@ bool check(const char *word)
     return false;
 }
 
+// Declaring a variable to count the number of words in the dictionary
+int word_counter = 0;
 /**
  * Loads dictionary into memory. Returns true if successful else false.
  */
 bool load(const char *dictionary)
 {
-    // TODO
-    return false;
+    // open the dictionary file in reading mode
+    FILE* dic = fopen(dictionary, "r");
+    
+    // to check any case of failure while opening file
+    if (dic == NULL)
+    {
+        return false;
+    }
+
+    // iterating word by word through the dictionnary
+    while (fscanf(dic, "%s\n", WORD) != EOF)
+    {
+        // Reserving memory for a new node
+        node *newnode = malloc(sizeof(node));
+
+        int slen = strlen(WORD);
+        
+        // Allocating memory to hold a New word
+        newnode->word = (char* ) malloc(slen + 1);
+        
+        // Copying word to node's element
+        strcpy(newnode->word, WORD);
+        
+        // hashing the word
+        int hashed = hashfunc(WORD);
+
+        // In case the head of this linked list is empty
+        if (list[hashed] == NULL)
+        {
+            list[hashed] = newnode;
+            
+            newnode->next_node = NULL;
+        }
+        // otherwise
+        else
+        {
+            newnode->next_node = list[hashed];
+            
+            list[hashed] = newnode;
+        }
+        // incrementing by one after loading each word in dic
+        word_counter++;
+    }
+    // Closing file
+    fclose(dic);
+    // successful return
+    return true;
 }
 
 /**
