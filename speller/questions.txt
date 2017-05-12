@@ -1,0 +1,23 @@
+0.  It's an invented long word which means a lung disease that is caused by inhaling very fine ash and sand dust.
+
+1.  getrusage() returns resource usage measures for who(first argument), which can be one of 3 types.
+
+2.  16 elements
+
+3.  Passing a struct, by value in functions, would result in way too big code and memory occupation thus C requires passing structs by reference in functions. Same is the
+    reason for this question.   
+
+4.  For loop reads words from file, character by character, from first character to EOF, incrementing by one character each time. If and only if the character is a letter or
+    apostrophe, then only it is added to a word. If the word becomes larger than 45 or has a digit then it is ignored. If a proper word with all the condition exist then all
+    such words are first counted and then checked for spellings in which it is checked by our loaded dictionary. The amount of time it tooks to complete the checking process
+    is logged in time_check variable with the help getrusage() . The last if condition prints as well as count the number of misspellings.
+
+5.  So as to find all the numerical and other punctuation inputs which are not allowed to use.
+
+6.  The const keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it. This keyword specifies that the 
+    function does not modify the object for which it is invoked so as to avoid any unintentioned modification (by mistake) while writting the code.
+    
+    For loop reads words from file, character by character, from first character to EOF, incrementing by one character each time. If and only if the character is a letter or
+    apostrophe, then only it is added to a word. If the word becomes larger than 45 or has a digit then it is ignored. If a proper word with all the condition exist then all
+    such words are first counted and then checked for spellings in which it is checked by our loaded dictionary. The amount of time it tooks to complete the checking process
+    is logged in time_check variable with the help getrusage(). The last if condition prints as well as count the number of misspellings.   
