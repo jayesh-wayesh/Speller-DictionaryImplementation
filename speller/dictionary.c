@@ -111,3 +111,21 @@ bool unload(void)
     // TODO
     return false;
 }
+
+/**
+ * Hash function to return the index value of linked list 
+ */
+int hashfunc(const char* word)
+{
+    int index = 0;
+    // finding out index value
+    for (int i = 0; word[i] != '\0'; i++)
+    {
+        index = index + tolower(word[i]);
+    }
+    
+    // mod by size to stay within limits
+    index = index % HASHTABLE;
+
+    return index;
+}
