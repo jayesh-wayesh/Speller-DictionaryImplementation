@@ -17,7 +17,4 @@
 6.  The const keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it. This keyword specifies that the 
     function does not modify the object for which it is invoked so as to avoid any unintentioned modification (by mistake) while writting the code.
     
-    For loop reads words from file, character by character, from first character to EOF, incrementing by one character each time. If and only if the character is a letter or
-    apostrophe, then only it is added to a word. If the word becomes larger than 45 or has a digit then it is ignored. If a proper word with all the condition exist then all
-    such words are first counted and then checked for spellings in which it is checked by our loaded dictionary. The amount of time it tooks to complete the checking process
-    is logged in time_check variable with the help getrusage(). The last if condition prints as well as count the number of misspellings.   
+     
